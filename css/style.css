@@ -1,0 +1,309 @@
+:root {
+    --secondary: #CCCCCC;
+    --bg: rgba(26, 26, 26, 0.7);
+    --backrgound: #000000;
+    --buttons: #FFD700;
+    --error: #ff0000;
+    --code: #000000;
+}
+
+/* Utility, Atoms, ... */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: url("../img/background-1.gif");
+    background-position: center;
+    object-fit: fill;
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: clamp(1rem, 4dvw, 8rem);
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    flex: 0;
+    height: 5rem;
+    background-color: var(--bg);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 2.21rem;
+    line-height: 2;
+}
+
+h2 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    text-decoration: underline;
+}
+
+section {
+    margin: 1.5rem 0;
+    background-color: var(--bg);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+/* HEADER */
+
+header {
+    font-size: 1.5rem;
+}
+
+header a {
+    color: inherit;
+    text-decoration: none;
+
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    display: inline-block;
+    font-variant: all-petite-caps
+}
+
+.hamburger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    order: -1;
+    border: 0;
+    background-color: inherit;
+    color: inherit;
+    font: inherit;
+    padding: 0;
+    font-variant: all-petite-caps;
+}
+
+.hamburger .icon {
+    width: 1.5rem;
+}
+
+.hamburger .icon span {
+    height: 2px;
+    display: block;
+    background-color: var(--secondary);
+    margin: 2px 0;
+    transition: transform .2s ease-in-out;
+}
+
+.hamburger[aria-expanded=true] .icon span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.hamburger[aria-expanded=true] .icon span:nth-child(2) {
+    visibility: hidden;
+}
+
+.hamburger[aria-expanded=true] .icon span:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+header .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+nav {
+    width: 100%;
+    display: none;
+
+}
+
+nav.hidden {
+    display: block;
+    position: relative;
+    animation: 1s up forwards;
+}
+
+@keyframes up {
+    0% {
+        opacity: 1;
+        margin-top: 0;
+        left: 0;
+    }
+
+    60% {
+        opacity: 0;
+        margin-top: 0;
+        left: 100%;
+    }
+
+    100% {
+        opacity: 0;
+        margin-top: -150%;
+        left: 100%;
+        visibility: hidden;
+    }
+}
+
+nav.visible {
+    display: block;
+    position: relative;
+    animation: 1s down forwards;
+}
+
+@keyframes down {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        margin-top: -150%;
+        left: -100%;
+    }
+
+    60% {
+        opacity: 0;
+        margin-top: 0;
+        left: -100%;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+        left: 0;
+
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: .5rem 0;
+    text-align: center;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    background-color: var(--secondary);
+    bottom: 0;
+    width: 100%;
+    right: 0;
+}
+
+
+/* MAIN */
+
+.collage {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: none;
+    padding: 0;
+}
+
+.tijdperk {
+    background-color: var(--bg);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+pre,
+code {
+    font-family: monospace, monospace;
+}
+
+pre {
+    overflow: auto;
+    max-height: 30rem;
+}
+
+pre>code {
+    display: block;
+    padding: 1rem;
+    word-wrap: normal;
+    background-color: var(--code);
+}
+
+@media (min-width: 46.875em) {
+    .collage {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 2rem;
+
+    }
+
+    .tijdperk:nth-child(1) {
+        grid-row: 1 / 1;
+        grid-column: 1 / 1;
+    }
+
+    .tijdperk:nth-child(2) {
+        grid-row: 1 / 1;
+        grid-column: 2 / 2;
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav.hidden {
+        display: block;
+        animation: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    nav a.active::before,
+    nav a:hover::before,
+    nav a:focus-visible::before {
+        top: 0;
+        left: 2rem;
+    }
+
+    header .content {
+        justify-content: center;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 2rem;
+    }
+
+    nav a::after {
+        width: 100%;
+    }
+}

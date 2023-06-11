@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon - Opbouw</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/main.js" type="module"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="content">
+                <button aria-expanded="false" class="hamburger" id="menu">
+                    <span aria-hidden="true" class="icon">
+                        <span></span><span></span><span></span>
+                    </span>
+                    <span>Menu</span>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./tijdperken.html">Tijdperken</a></li>
+                        <li><a class="active" href="#">Opbouw</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Opbouw</h1>
+            <section>
+                <h2>Code</h2>
+                <figure>
+                    <pre>
+                      <code>
+int difficulty = 1;  // 1 = easy, 2 = intermediate, 3 = hard
+
+void setup() {
+  Serial.begin(9600);
+}
+
+
+void loop() {
+  // Wachten tot moeilijkheid woordt gescant
+  enableLedRing(4);
+}
+
+
+int total_index = 0;
+int remaining_leds = 16;
+void enableLedRing(int tijdperk) {
+  uint32_t red = ring.Color(255, 0, 0);      // red
+  uint32_t cyan = ring.Color(0, 255, 255);   // cyan
+  uint32_t groen = ring.Color(0, 255, 0);    // green
+  uint32_t paars = ring.Color(128, 0, 128);  // paars
+  uint32_t blue = ring.Color(0, 0, 255);     // blue
+  uint32_t geel = ring.Color(255, 255, 0);   // yellow
+
+  randomSeed(analogRead(0));
+
+  switch (difficulty) {
+    case 1:
+      if (tijdperk == 0) {
+        int redCount = random(2, 5);
+        remaining_leds = (remaining_leds - redCount) - 1;
+        int max = total_index + redCount;
+        Serial.println("TIJDPERK 0");
+        Serial.print("Remaining leds: ");
+        Serial.print(remaining_leds);
+        Serial.println();
+        Serial.print("leds count: ");
+        Serial.print(redCount);
+        Serial.println();
+        for (int i = total_index; i &amp;lt;= max; i++) {
+          Serial.print("Turn on led: ");
+          Serial.print(i);
+          Serial.println();
+          ring.setPixelColor(i, red);
+        }
+        total_index = max + 1;
+      }
+      if (tijdperk == 1) {
+        int cyanCount = random(2, 5);
+        remaining_leds = (remaining_leds - cyanCount) - 1;
+        int max = total_index + cyanCount;
+        Serial.println("TIJDPERK 1");
+        Serial.print("Remaining leds: ");
+        Serial.print(remaining_leds);
+        Serial.println();
+        Serial.print("leds count: ");
+        Serial.print(cyanCount);
+        Serial.println();
+        for (int i = total_index; i &amp;lt;= max; i++) {
+          Serial.print("Turn on led: ");
+          Serial.print(i);
+          Serial.println();
+          ring.setPixelColor(i, cyan);
+        }
+        total_index = max + 1;
+      }
+      if (tijdperk == 2) {
+        int greenCount = random(2, 5);
+        remaining_leds = (remaining_leds - greenCount) - 1;
+        int max = total_index + greenCount;
+        Serial.println("TIJDPERK 2");
+        Serial.print("Remaining leds: ");
+        Serial.print(remaining_leds);
+        Serial.println();
+        Serial.print("leds count: ");
+        Serial.print(greenCount);
+        Serial.println();
+        for (int i = total_index; i &amp;lt;= max; i++) {
+          Serial.print("Turn on led: ");
+          Serial.print(i);
+          Serial.println();
+          ring.setPixelColor(i, groen);
+        }
+        total_index = max + 1;
+      }
+      if (tijdperk == 3) {
+        int max = total_index + remaining_leds;
+        Serial.println("TIJDPERK 3");
+        Serial.print("Remaining leds: ");
+        Serial.print(remaining_leds);
+        Serial.println();
+        Serial.print("leds count: ");
+        Serial.print(total_index - remaining_leds);
+        Serial.println();
+        Serial.print("Total index: ");
+        Serial.print(total_index);
+        Serial.println();
+        for (int i = total_index; i &amp;lt;= max; i++) {
+          Serial.print("Turn on led: ");
+          Serial.print(i);
+          Serial.println();
+          ring.setPixelColor(i, paars);
+        }
+      }
+      ring.show();
+      break;
+    case 2:
+
+
+
+
+      break;
+    case 3:
+
+
+
+
+      break;
+  }
+}
+                      </code>
+                    </pre>
+                </figure>
+            </section>
+            <section>
+                <h2>Blokschema</h2>
+                <img src="" alt="Foto van de puzzel-doos opstelling">
+                <p>Hier komt foto van de doos</p>
+            </section>
+            <section>
+                <h2>Flowchart</h2>
+                <img src="" alt="Foto van de puzzel-doos opstelling">
+                <p>Hier komt foto van de doos</p>
+            </section>
+        </main>
+        <footer>
+            <p>Copyright © Team 6</p>
+            <p>Project by: Victor Decaigny, Rohan Philips, Jens De Ruyck en Kwinten De Deyn</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
