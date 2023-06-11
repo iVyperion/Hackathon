@@ -250,6 +250,17 @@ pre>code {
     background-color: var(--code);
 }
 
+.content_table {
+    display: flex;
+    gap: 1rem;
+}
+.content_table a {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+
 @media (min-width: 46.875em) {
     .collage {
         display: grid;

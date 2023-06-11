@@ -2,44 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackathon - Opbouw</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="./js/main.js" type="module"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon - Opbouw</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/main.js" type="module"></script>
 
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="content">
-                <button aria-expanded="false" class="hamburger" id="menu">
-                    <span aria-hidden="true" class="icon">
-                        <span></span><span></span><span></span>
-                    </span>
-                    <span>Menu</span>
-                </button>
-                <nav>
-                    <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./tijdperken.html">Tijdperken</a></li>
-                        <li><a class="active" href="#">Opbouw</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <main>
-            <h1>Opbouw</h1>
-            <section>
-                <h2>Code</h2>
-                <figure>
-                    <pre>
-                      <code>
+  <div class="container">
+    <header>
+      <div class="content">
+        <button aria-expanded="false" class="hamburger" id="menu">
+          <span aria-hidden="true" class="icon">
+            <span></span><span></span><span></span>
+          </span>
+          <span>Menu</span>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./tijdperken.html">Tijdperken</a></li>
+            <li><a class="active" href="#">Opbouw</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1>Opbouw</h1>
+      <div class="content_table">
+        <a href="#code">code</a>
+        <p> - </p>
+        <a href="#blockschema">blokschema</a>
+        <p> - </p>
+        <a href="#flowchart">Flowchart</a>
+      </div>
+      <section id="code">
+        <h2>Code</h2>
+        <figure>
+          <pre>
+                      <code class="language-cpp">
 int difficulty = 1;  // 1 = easy, 2 = intermediate, 3 = hard
 
 void setup() {
@@ -161,24 +169,25 @@ void enableLedRing(int tijdperk) {
 }
                       </code>
                     </pre>
-                </figure>
-            </section>
-            <section>
-                <h2>Blokschema</h2>
-                <img src="" alt="Foto van de puzzel-doos opstelling">
-                <p>Hier komt foto van de doos</p>
-            </section>
-            <section>
-                <h2>Flowchart</h2>
-                <embed width="100%" height="600px" src="./img/flowchart.pdf" alt="Foto van de puzzel-doos opstelling" />
-            </section>
-        </main>
-        <footer>
-            <p>Copyright © Hackathon Team 6</p>
-            <p>Project by: Victor Decaigny, Rohan Philips, Jens De Ruyck en Kwinten De Deyn</p>
-        </footer>
+        </figure>
+      </section>
+      <section id="blokschema">
+        <h2>Blokschema</h2>
+        <img src="" alt="Foto van de puzzel-doos opstelling">
+        <p>Hier komt foto van de doos</p>
+      </section>
+      <section id="flowchart">
+        <h2>Flowchart</h2>
+        <embed width="100%" height="600px" src="./img/flowchart.pdf" alt="Foto van de puzzel-doos opstelling" />
+      </section>
+    </main>
+    <footer>
+      <p>Copyright © Hackathon Team 6</p>
+      <p>Project by: Victor Decaigny, Rohan Philips, Jens De Ruyck en Kwinten De Deyn</p>
+    </footer>
 
-    </div>
+  </div>
+  <script src="./js/prism.js"></script>
 </body>
 
 </html>
