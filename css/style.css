@@ -252,7 +252,7 @@ code {
 
 pre {
     overflow: auto;
-    max-height: 30rem;
+    max-height: 90dvh;
 }
 
 pre>code {
